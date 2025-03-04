@@ -1,5 +1,5 @@
 ### Descriptions
-Block all sorts of Bullshit (psuedoscience, creationism)
+A browser extension that blocks all sorts of Bullshit (psuedoscience, creationism)
 
 ### Limitations
 <ol>
