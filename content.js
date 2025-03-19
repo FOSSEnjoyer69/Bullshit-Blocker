@@ -12,7 +12,8 @@ const blockedChannels =
     "amessengeroftruth",
     "discoveryinstitute",
     "therealansweringmachine",
-    "mattpowellofficial"
+    "mattpowellofficial",
+    "tesla", "spacex",
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
