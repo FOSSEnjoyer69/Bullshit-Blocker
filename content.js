@@ -16,7 +16,8 @@ const blockedChannels =
     "tesla", "spacex",
     "bruhvideoproduction",
     "willspencerpod",
-    "undecidedmf"
+    "undecidedmf",
+    "neonadejo"
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
