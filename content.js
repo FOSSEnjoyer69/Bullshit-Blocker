@@ -22,7 +22,8 @@ const blockedChannels =
     "kevinthechristian",
     "joerogan",
     "testifyapologetics",
-    "hoodmystic"
+    "hoodmystic",
+    "daverightnow"
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
