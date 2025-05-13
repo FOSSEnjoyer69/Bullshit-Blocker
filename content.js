@@ -26,7 +26,8 @@ const blockedChannels =
     "daverightnow",
     "apostoliczoomer",
     "thereactionarychristian",
-    "realcandaceO"
+    "realcandaceO",
+    "pbdpodcast",
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
