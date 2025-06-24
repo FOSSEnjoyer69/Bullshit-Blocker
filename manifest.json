@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Bullshit Blocker",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Blocks videos and channel pages from specified YouTube channels.",
     "content_scripts": [
     {
