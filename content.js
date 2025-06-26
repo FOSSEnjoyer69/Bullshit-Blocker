@@ -31,6 +31,7 @@ const blockedChannels =
     "realcandaceO",
     "pbdpodcast",
     "dedunking",
+    "restoredcog",
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
