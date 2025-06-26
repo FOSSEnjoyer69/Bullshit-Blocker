@@ -3,6 +3,7 @@ console.log("Bullshit Blocker Running");
 // List of blocked channels: add the channel handle (without '@') in lowercase.
 const blockedChannels = 
 [
+    "drjamestour",
     "justxashton",
     "sabinehossenfelder", 
     "subboorahmadabbasi",
