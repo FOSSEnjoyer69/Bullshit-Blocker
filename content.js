@@ -32,6 +32,9 @@ const blockedChannels =
     "pbdpodcast",
     "dedunking",
     "restoredcog",
+
+    //Media
+    "skynewsaustralia"
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
