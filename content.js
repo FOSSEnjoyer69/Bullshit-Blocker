@@ -32,6 +32,7 @@ const blockedChannels =
     "pbdpodcast",
     "dedunking",
     "restoredcog",
+    "TheDrDerek",
 
     //Media
     "skynewsaustralia"
