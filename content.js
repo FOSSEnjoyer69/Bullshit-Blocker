@@ -20,6 +20,7 @@ const blockedChannels =
     "hasanabi",
     "therealansweringmachine",
     "mattpowellofficial",
+    "michaelknowles",
     "tesla", "spacex",
     "willspencerpod",
     "undecidedmf",
