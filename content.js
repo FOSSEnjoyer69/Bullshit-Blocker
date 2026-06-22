@@ -36,7 +36,9 @@ const blockedChannels =
     "thereactionarychristian",
 
     //Media
-    "skynewsaustralia"
+    "skynewsaustralia",
+
+    "jessebradleychannel"
 ];
 
 // Extracts the channel handle from a URL that uses the new format.
