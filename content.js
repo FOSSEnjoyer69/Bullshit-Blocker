@@ -1,84 +1,89 @@
 console.log("Bullshit Blocker Running");
 
-// List of blocked channels: add the channel handle (without '@') in lowercase.
-const blockedChannels = 
-[
-    "amessengeroftruth",
-    "answersingenesis",
-    "apostoliczoomer",
-    "bruhvideoproduction",
-    "cc4561",
-    "daverightnow",
-    "dedunking",
-    "discoveryinstitute",
-    "drjamestour",
-    "justxashton",
-    "sabinehossenfelder", 
-    "subboorahmadabbasi",
-    "thunderboltsproject",
-    "prageru",
-    "hasanabi",
-    "therealansweringmachine",
-    "mattpowellofficial",
-    "michaelknowles",
-    "tesla", "spacex",
-    "willspencerpod",
-    "undecidedmf",
-    "neonadejo",
-    "kevinthechristian",
-    "joerogan",
-    "testifyapologetics",
-    "hoodmystic",
-    "realcandaceO",
-    "restoredcog",
-    "pbdpodcast",
-    "thedrderek",
-    "thereactionarychristian",
+const blockedChannels = new Set(
+  globalThis.blockedChannels.map(handle =>
+    handle.trim().replace(/^@/, "").toLowerCase()
+  )
+);
 
-    //Media
-    "skynewsaustralia",
+const videoContainerSelector = [
+  "ytd-video-renderer",
+  "ytd-grid-video-renderer",
+  "ytd-compact-video-renderer",
+  "ytd-rich-item-renderer",
+  "ytd-reel-item-renderer",
+  "ytd-playlist-video-renderer",
+  "yt-lockup-view-model"
+].join(",");
 
-    "jessebradleychannel"
-];
+function getChannelIdentifier(href) {
+  if (!href) return null;
 
-// Extracts the channel handle from a URL that uses the new format.
-function getChannelIdentifier(url) {
-  const urlString = String(url); // Ensure the URL is a string.
-  if (urlString.includes("/@")) {
-    const parts = urlString.split("/@");
-    if (parts[1]) {
-      // Extract only the handle part (ignoring any additional path segments)
-      return parts[1].split('/')[0].toLowerCase();
+  try {
+    const url = new URL(href, location.origin);
+    const match = url.pathname.match(/^\/@([^/]+)/i);
+
+    return match
+      ? decodeURIComponent(match[1]).toLowerCase()
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+function checkContainer(container) {
+  if (!(container instanceof Element)) return;
+
+  const channelLinks = container.matches('a[href*="/@"]')
+    ? [container]
+    : container.querySelectorAll('a[href*="/@"]');
+
+  for (const link of channelLinks) {
+    const id = getChannelIdentifier(link.getAttribute("href"));
+
+    if (id && blockedChannels.has(id)) {
+      console.log("Blocking channel:", id);
+
+      const videoContainer = link.closest(videoContainerSelector);
+
+      if (videoContainer) {
+        videoContainer.remove();
+      }
+
+      return;
     }
   }
-  return null;
 }
 
-function blockSearchResults()
-{
-  const links = document.querySelectorAll('a[href*="/@"]');
-  links.forEach(link => 
-  {
-    const href = String(link.getAttribute('href'));
-    const id = getChannelIdentifier(href);
-    if (id)
-    {
-      if (blockedChannels.includes(id))
-      {
-        const videoContainer = link.closest('ytd-video-renderer, ytd-grid-video-renderer, ytd-compact-video-renderer');
-  
-        if (videoContainer)
-          videoContainer.remove();
+function blockSearchResults(root = document) {
+  if (!(root instanceof Document || root instanceof Element)) {
+    return;
+  }
+
+  // Handle the root itself if it is a video container.
+  if (root instanceof Element && root.matches(videoContainerSelector)) {
+    checkContainer(root);
+  }
+
+  // Handle video containers inside the root.
+  root.querySelectorAll(videoContainerSelector).forEach(checkContainer);
+}
+
+// Scan content already on the page.
+blockSearchResults();
+
+// Watch for newly loaded content.
+const observer = new MutationObserver(mutations => {
+  for (const mutation of mutations) {
+    for (const addedNode of mutation.addedNodes) {
+      if (addedNode instanceof Element) {
+        blockSearchResults(addedNode);
       }
     }
-  });
+  }
+});
 
-}
-
-// Run the blocking code when the DOM is fully loaded.
-document.addEventListener('DOMContentLoaded', () => 
-{
-  setInterval(() => {
-      blockSearchResults();
-  }, 1000);
+observer.observe(document.documentElement, {
+  childList: true,
+  subtree: true
 });

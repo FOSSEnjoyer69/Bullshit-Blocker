@@ -1,16 +1,18 @@
 {
-    "manifest_version": 2,
-    "name": "Bullshit Blocker",
-    "version": "1.2",
-    "description": "Blocks videos and channel pages from specified YouTube channels.",
-    "content_scripts": [
+  "manifest_version": 3,
+  "name": "Bullshit Blocker",
+  "version": "1.3.0",
+  "description": "Blocks unwanted YouTube channels.",
+  "content_scripts": [
     {
-        "matches": ["*://www.youtube.com/*"],
-        "js": ["content.js"],
-        "run_at": "document_end"
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "blocked-channel.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
     }
-    ],
-    "permissions": [
-        "storage"
-    ]
-}  
+  ]
+}
