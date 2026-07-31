@@ -15,7 +15,6 @@ globalThis.blockedChannels =
     "therealansweringmachine",
     "mattpowellofficial",
     "michaelknowles",
-    "tesla", "spacex",
     "willspencerpod",
     "undecidedmf",
     "neonadejo",
@@ -209,10 +208,14 @@ globalThis.blockedChannels =
     "destiny", "bestiny", "lastnightdestiny",
 
     //Media
-    "skynewsaustralia",
+    "aussiecossack",
+    "australiarising",
+    "news23",
     "newsmax",
     "oann",
+    "rebelnewsonline",
     "realamericasvoice",
+    "theealrukshan",
     "theepochtimes",
     "ntdnews",
     "frankspeech",
@@ -252,8 +255,13 @@ globalThis.blockedChannels =
     "cgtn",
     "cctvvideo",
     "globaltimes",
+    "paulinehansonpleaseexplain",
     "presstv",
     "tassagency",
+    "theaussiewire",
+    "cafelockedout",
+    "turningpointaustralia",
+    "theunshackled",
 
     //Paranormal / UFO / Alien / Extraterrestrial
     "medicalmedium",
