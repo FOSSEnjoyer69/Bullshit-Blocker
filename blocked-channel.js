@@ -28,7 +28,7 @@ globalThis.blockedChannels =
     "pbdpodcast",
     "thedrderek",
     "thereactionarychristian",
-
+    
     //Ai Slop
     "sleeplesshistorian",
     "boringhistorybites",
@@ -48,6 +48,10 @@ globalThis.blockedChannels =
     "screenculture",
     "khstudio",
 
+    //Geneal
+    "leokearse",
+    "isaacbutterfield",
+    
     //Science Disinformation / Anti-Science / Anti-Vaccine / Anti-Medical / Anti-Pharma
     "deepakchopra",
     "gaia",
