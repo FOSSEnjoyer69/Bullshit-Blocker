@@ -50,6 +50,7 @@ globalThis.blockedChannels =
     //Geneal
     "leokearse",
     "isaacbutterfield",
+    "tuckercarlson",
     
     //Science Disinformation / Anti-Science / Anti-Vaccine / Anti-Medical / Anti-Pharma
     "deepakchopra",
